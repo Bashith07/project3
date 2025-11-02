@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us - Badminton Kit Store</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+ <header>
+    <div class="logo">🏸 <span>Badminton Kit Store</span></div>
+    <nav class="navbar">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="active">Contact</a>
+      <a href="cart.html">🛒 Cart (<span id="cartCount">0</span>)</a>
+    </nav>
+    <div id="nav-toggle" class="nav-toggle">
+      <span></span><span></span><span></span>
+    </div>
+  </header>
+
+  <main class="contact-page">
+    <h2>Contact Us</h2>
+    <p>Have questions or feedback? We'd love to hear from you!</p>
+
+    <form id="contactForm">
+      <label for="name">Your Name:</label>
+      <input type="text" id="name" placeholder="Enter your name" required />
+
+      <label for="email">Your Email:</label>
+      <input type="email" id="email" placeholder="Enter your email" required />
+
+      <label for="message">Message:</label>
+      <textarea id="message" rows="5" placeholder="Type your message..." required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+
+    <div id="responseMsg"></div>
+  </main>
+
+  <footer>
+    <p>© 2025 Badminton Kit Store | Designed with ❤️ by You</p>
+  </footer>
+
+  <script>
+    // Simple contact form message alert
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('responseMsg').innerText = "✅ Thank you! Your message has been sent.";
+      this.reset();
+    });
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>

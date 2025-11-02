@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Badminton Kit Store - Home</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ======= HEADER / NAVBAR ======= -->
+    <header>
+      <div class="logo">🏸 <span>Badminton Kit Store</span></div>
+      <nav class="navbar">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html">🛒 Cart (<span id="cartCount">0</span>)</a>
+      </nav>
+      <div id="nav-toggle" class="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <div class="search-filter">
+        <input type="text" id="searchBar" placeholder="Search products..." />
+        <select id="categoryFilter">
+          <option value="all">All Categories</option>
+          <option value="racket">Rackets</option>
+          <option value="shoes">Shoes</option>
+          <option value="shuttle">Shuttles</option>
+          <option value="accessory">Accessories</option>
+        </select>
+      </div>
+    </header>
+
+    <!-- ======= MAIN PRODUCTS SECTION ======= -->
+    <main>
+      <h2 class="section-title">Our Products</h2>
+      <div id="productContainer" class="product-grid"></div>
+    </main>
+
+    <!-- ======= FOOTER ======= -->
+    <footer>
+      <p>© 2025 Badminton Kit Store | Designed with 💙 Electric Energy</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About | Badminton Kit Store</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">🏸 <span>Badminton Kit Store</span></div>
+    <nav class="navbar">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="cart.html">🛒 Cart (<span id="cartCount">0</span>)</a>
+    </nav>
+    <div id="nav-toggle" class="nav-toggle">
+      <span></span><span></span><span></span>
+    </div>
+  </header>
+
+  <main class="container" style="padding:28px 18px;">
+    <h1>About Badminton Kit Store</h1>
+    <p class="muted">We provide high-quality rackets, shuttlecocks, shoes and accessories for players of all levels. Our mission is to help you play better with gear you can trust.</p>
+
+    <section style="margin-top:18px;display:grid;grid-template-columns:1fr 320px;gap:18px;">
+      <div>
+        <h2>What we offer</h2>
+        <ul>
+          <li>Premium rackets from top brands</li>
+          <li>Performance shoes and apparel</li>
+          <li>Shuttlecocks and training equipment</li>
+          <li>Fast shipping & easy returns</li>
+        </ul>
+
+        <h2>Why choose us</h2>
+        <p class="muted">Carefully selected products, expert customer support, and a shop built by players for players.</p>
+      </div>
+
+      
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Badminton Kit Store</p>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="script.js"></script>
+</body>
+</html>
