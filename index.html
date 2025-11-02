@@ -10,29 +10,32 @@
     <!-- ======= HEADER / NAVBAR ======= -->
     <header>
       <div class="logo">🏸 <span>Badminton Kit Store</span></div>
+
       <nav class="navbar">
         <a href="index.html" class="active">Home</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
         <a href="cart.html">🛒 Cart (<span id="cartCount">0</span>)</a>
       </nav>
-      <div id="nav-toggle" class="nav-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
 
-      <div class="search-filter">
-        <input type="text" id="searchBar" placeholder="Search products..." />
-        <select id="categoryFilter">
-          <option value="all">All Categories</option>
-          <option value="racket">Rackets</option>
-          <option value="shoes">Shoes</option>
-          <option value="shuttle">Shuttles</option>
-          <option value="accessory">Accessories</option>
-        </select>
+      <div id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
     </header>
+
+    <!-- ======= SEARCH + FILTER ======= -->
+    <div class="search-filter">
+      <input type="text" id="searchBar" placeholder="Search products..." />
+      <select id="categoryFilter">
+        <option value="all">All Categories</option>
+        <option value="racket">Rackets</option>
+        <option value="shoes">Shoes</option>
+        <option value="shuttle">Shuttles</option>
+        <option value="accessory">Accessories</option>
+      </select>
+    </div>
 
     <!-- ======= MAIN PRODUCTS SECTION ======= -->
     <main>
