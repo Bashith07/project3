@@ -3,52 +3,45 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cart - Badminton Store</title>
+  <title>Cart - Badminton Kit Store</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<header>
-  <div class="logo">🏸 <span>Badminton Kit Store</span></div>
-  <nav class="navbar" id="nav">
-    <a href="index.html" class="active">Home</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-    <a href="cart.html">🛒 Cart (<span id="cartCount">0</span>)</a>
-  </nav>
-  <div id="nav-toggle" class="nav-toggle">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</header>
-
-<main>
-  <h1 style="text-align:center;">🛒 Your Cart</h1>
-  <div class="cart-container">
-    <div id="cartItems"></div>
-    <div id="cartTotal" class="cart-total"></div>
-    <div class="checkout-btn">
-      <button onclick="proceedToCheckout()">Proceed to Checkout</button>
+  <header>
+    <div class="logo">🏸 <span>Badminton Kit Store</span></div>
+    <nav class="navbar">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="cart.html" class="active">🛒 Cart (<span id="cartCount">0</span>)</a>
+    </nav>
+    <div id="nav-toggle" class="nav-toggle">
+      <span></span><span></span><span></span>
     </div>
-  </div>
-</main>
+  </header>
 
-<footer>
-  <p>© 2025 Badminton Kit Store | All Rights Reserved</p>
-</footer>
+  <main>
+    <h1 style="text-align:center;">🛒 Your Cart</h1>
+    <div class="cart-container">
+      <div id="cartItems"></div>
+      <div id="cartTotal" class="cart-total"></div>
+      <div class="checkout-btn">
+        <button onclick="proceedToCheckout()">Proceed to Checkout</button>
+      </div>
+    </div>
+  </main>
 
-<script src="script.js"></script>
-<script>
-function proceedToCheckout() {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  if (cart.length === 0) {
-    alert("🛍️ Your cart is empty! Add some products first.");
-  } else {
-    alert("✅ Proceeding to checkout...");
-    // window.location.href = "checkout.html"; // optional future redirect
-  }
-}
-</script>
+  <footer>
+    <p>© 2025 Badminton Kit Store | All Rights Reserved</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    function proceedToCheckout() {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      if (cart.length === 0) alert("🛍️ Your cart is empty!");
+      else alert("✅ Proceeding to checkout...");
+    }
+  </script>
 </body>
 </html>
-
