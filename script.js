@@ -106,30 +106,47 @@ if (document.title.includes("Home")) {
         <img src="${p.image}" alt="${p.name}" onclick="viewProduct(${p.id})">
         <h3>${p.name}</h3>
         <p>₹${p.price}</p>
+        <div class="qty-control">
+          <button onclick="changeQty(${p.id}, -1)">-</button>
+          <span id="qty-${p.id}">1</span>
+          <button onclick="changeQty(${p.id}, 1)">+</button>
+        </div>
         <button onclick="addToCart(${p.id})">Add to Cart</button>
+        <button onclick="viewProduct(${p.id})" style="background:#00b894;">View Product</button>
       `;
       productContainer.appendChild(card);
     });
   }
 
-  function addToCart(id) {
+  const quantities = {};
+
+  window.changeQty = function (id, change) {
+    if (!quantities[id]) quantities[id] = 1;
+    quantities[id] = Math.max(1, quantities[id] + change);
+    document.getElementById(`qty-${id}`).textContent = quantities[id];
+  };
+
+  window.addToCart = function (id) {
     const item = products.find((p) => p.id === id);
     const exist = cart.find((c) => c.id === id);
-    if (exist) {
-      alert("⚠️ Item already in cart!");
-    } else {
-      cart.push({ ...item, quantity: 1 });
-      alert("✅ Added to cart successfully!");
-      localStorage.setItem("cart", JSON.stringify(cart));
-    }
-    updateCartCount();
-  }
+    const qty = quantities[id] || 1;
 
-  function viewProduct(id) {
+    if (exist) {
+      exist.quantity += qty;
+    } else {
+      cart.push({ ...item, quantity: qty });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert("✅ Added to cart successfully!");
+    updateCartCount();
+  };
+
+  window.viewProduct = function (id) {
     const selected = products.find((p) => p.id === id);
     localStorage.setItem("selectedProduct", JSON.stringify(selected));
     window.location.href = "product.html";
-  }
+  };
 
   searchBar.addEventListener("input", (e) => {
     const value = e.target.value.toLowerCase();
@@ -171,12 +188,12 @@ if (document.title.includes("Product Details")) {
   window.addToCartDetails = function () {
     const exist = cart.find((c) => c.id === productData.id);
     if (exist) {
-      alert("⚠️ Item already in cart!");
+      exist.quantity++;
     } else {
       cart.push({ ...productData, quantity: 1 });
-      alert("✅ Added to cart successfully!");
-      localStorage.setItem("cart", JSON.stringify(cart));
     }
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert("✅ Added to cart successfully!");
     updateCartCount();
   };
 
@@ -188,13 +205,10 @@ if (document.title.includes("Cart")) {
   const cartContainer = document.getElementById("cartItems");
   const cartTotal = document.getElementById("cartTotal");
 
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
   function renderCart() {
     if (cart.length === 0) {
       cartContainer.innerHTML = "<h2>Your cart is empty 🛍️</h2>";
       cartTotal.textContent = "";
-      localStorage.removeItem("cart");
       return;
     }
 
@@ -220,6 +234,7 @@ if (document.title.includes("Cart")) {
     });
 
     updateTotal();
+    localStorage.setItem("cart", JSON.stringify(cart));
   }
 
   function updateTotal() {
@@ -243,11 +258,8 @@ if (document.title.includes("Cart")) {
     renderCart();
   };
 
-  window.addEventListener("beforeunload", () => {
-    localStorage.removeItem("cart");
-  });
-
   renderCart();
+  updateCartCount();
 }
 
 // === CONTACT FORM ===
